@@ -1,34 +1,47 @@
 <template>
-    <main class="d-flex flex-nowrap">
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      <span class="fs-4">Covid 19</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="#" class="nav-link active" aria-current="page">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="/"/></svg>
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-          Sobre
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link text-white">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-          Curriculo
-        </a>
-      </li>
-    </ul>
-
-  </div>
-</main>
+  <main class="d-flex flex-nowrap">
+    <div
+      class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
+      style="width: 280px"
+    >
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+      >
+        <svg class="bi pe-none me-2" width="40" height="32">
+          <use xlink:href="#bootstrap" />
+        </svg>
+        <span class="fs-4">Covid 19</span>
+      </a>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <router-link
+          tag="li"
+          class="nav-link text-white"
+          active-class="active"
+          to="/"
+          exact
+          ><a>Home</a></router-link
+        >
+        <router-link
+          tag="li"
+          class="nav-link text-white"
+          active-class="active"
+          to="/about"
+          exact
+          ><a>About</a></router-link
+        >
+        <router-link
+          tag="li"
+          class="nav-link text-white"
+          active-class="active"
+          to="/resume"
+          exact
+          ><a>Curriculo</a></router-link
+        >
+      </ul>
+    </div>
+  </main>
 </template>
 
 <style>
@@ -48,10 +61,11 @@
 
 .b-example-divider {
   height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
   border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
 
 .b-example-vr {
@@ -61,7 +75,7 @@
 }
 
 .bi {
-  vertical-align: -.125em;
+  vertical-align: -0.125em;
   fill: currentColor;
 }
 
@@ -86,7 +100,9 @@
 
 <script lang="ts">
 export default {
-    name: 'sideBar',
-
-}
+  name: "sideBar",
+  data() {
+    return { isActive: false };
+  },
+};
 </script>
