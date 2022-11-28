@@ -17,9 +17,11 @@
     "bootstrap": "^5.2.3",
     "chart.js": "^2.9.4",
     "pinia": "^2.0.26",
+    "v-pagination-3": "^0.1.7",
     "vue": "^3.2.45",
     "vue-axios": "^3.5.2",
     "vue-router": "4",
+    "vue-sweetalert2": "^5.0.5",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
@@ -36,7 +38,7 @@
     "eslint-plugin-vue": "^9.3.0",
     "jsdom": "^20.0.3",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
+    "prettier": "2.8.0",
     "sass": "^1.56.1",
     "typescript": "~4.7.4",
     "vite": "^3.2.4",
