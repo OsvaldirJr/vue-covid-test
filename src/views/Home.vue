@@ -52,7 +52,6 @@
 <style lang="scss" scoped></style>
 
 <script lang="ts">
-import { identifier } from "@babel/types";
 import ChartComponent from "../components/Chart.vue";
 import TableComponentVue from "../components/TableComponent.vue";
 import api from "../services/api.js";

@@ -10,8 +10,8 @@ export default {
   name: "ChartComponent",
   data() {
     return {
-      chartData: {},
-      chart: null,
+      chartData: {} as any,
+      chart: null as any
     };
   },
   computed: {
@@ -68,7 +68,7 @@ export default {
           this.chart.data = this.chartData.data;
           this.chart.update();
         } else {
-          const ctx = document.getElementById("myChart");
+          const ctx = document.getElementById("myChart") as  HTMLCanvasElement;
           this.chart = new Chart(ctx, this.chartData);
         }
       },

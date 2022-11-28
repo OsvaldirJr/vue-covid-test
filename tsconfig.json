@@ -24,7 +24,8 @@
     "declaration": true,
     "outDir": "./lib",
     "noImplicitAny": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "disableSizeLimit": true
   },
   "include": [
     "src/**/*",

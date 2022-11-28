@@ -41,19 +41,20 @@ export default {
     return {
       perPage: 10,
       currentPage: 1,
+
     };
   },
   computed: {
-    record() {
+    record() : number{
       return this.$store.state.labels.length;
     },
-    labels() {
+    labels() : any[]{
       return this.$store.state.paginatedData.labels;
     },
-    confirmed() {
+    confirmed() : any[]{
       return this.$store.state.paginatedData.confirmed;
     },
-    deaths() {
+    deaths() : any[]{
       return this.$store.state.paginatedData.deaths;
     },
   },

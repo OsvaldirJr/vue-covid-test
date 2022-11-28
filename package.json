@@ -16,6 +16,7 @@
     "axios": "^1.2.0",
     "bootstrap": "^5.2.3",
     "chart.js": "^2.9.4",
+    "module-name": "^0.0.1-security",
     "pinia": "^2.0.26",
     "v-pagination-3": "^0.1.7",
     "vue": "^3.2.45",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
+    "@types/chart.js": "^2.9.37",
     "@types/jsdom": "^20.0.1",
     "@types/node": "^18.11.9",
     "@vitejs/plugin-vue": "^3.2.0",
