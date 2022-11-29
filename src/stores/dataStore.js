@@ -5,9 +5,11 @@ const store = createStore({
   strict: true,
   state() {
     return {
-      labels: [],
-      confirmed: [],
-      deaths: [],
+      data: {
+        labels: [],
+        confirmed: [],
+        deaths: [],
+      },
       paginatedData: {
         labels: [],
         confirmed: [],
@@ -16,17 +18,13 @@ const store = createStore({
     };
   },
   mutations: {
-    setLabels(state, payload) {
-      state.labels = payload;
-      state.paginatedData.labels = payload?.slice(1, 11);
-    },
-    setConfirmed(state, payload) {
-      state.confirmed = payload;
-      state.paginatedData.confirmed = payload?.slice(1, 11);
-    },
-    setDeaths(state, payload) {
-      state.deaths = payload;
-      state.paginatedData.deaths = payload?.slice(1, 11);
+    setData(state, payload) {
+      state.data.labels = payload.labels;
+      state.data.confirmed = payload.confirmed;
+      state.data.deaths = payload.deaths;
+      state.paginatedData.labels = payload.labels?.slice(1, 11);
+      state.paginatedData.confirmed = payload.confirmed?.slice(1, 11);
+      state.paginatedData.deaths = payload.deaths?.slice(1, 11);
     },
     setPaginatedData(state, payload) {
       state.paginatedData.labels = payload.labels;
@@ -35,14 +33,8 @@ const store = createStore({
     },
   },
   actions: {
-    setLabelsAction(context, payload) {
-      context.commit("setLabels", payload);
-    },
-    setConfirmedAction(context, payload) {
-      context.commit("setConfirmed", payload);
-    },
-    setDeathsAction(context, payload) {
-      context.commit("setDeaths", payload);
+    setDataAction(context, payload) {
+      context.commit("setData", payload);
     },
     setPaginatedDataAction(context, payload) {
       context.commit("setPaginatedData", payload);

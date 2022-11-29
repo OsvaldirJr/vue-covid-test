@@ -45,3 +45,9 @@ export default {
   name: "resume",
 };
 </script>
+<style>
+.left{
+  margin-right: 25px;
+  align-self: center;
+}
+</style>

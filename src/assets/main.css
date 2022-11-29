@@ -56,8 +56,3 @@ main {
 .scrollarea {
   overflow: scroll !important;
 }
-
-.left{
-  margin-right: 25px;
-  align-self: center;
-}
