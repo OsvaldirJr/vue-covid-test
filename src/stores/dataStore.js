@@ -5,6 +5,7 @@ const store = createStore({
   strict: true,
   state() {
     return {
+      perPage:10,
       data: {
         labels: [],
         confirmed: [],
@@ -22,14 +23,17 @@ const store = createStore({
       state.data.labels = payload.labels;
       state.data.confirmed = payload.confirmed;
       state.data.deaths = payload.deaths;
-      state.paginatedData.labels = payload.labels?.slice(1, 11);
-      state.paginatedData.confirmed = payload.confirmed?.slice(1, 11);
-      state.paginatedData.deaths = payload.deaths?.slice(1, 11);
+      state.paginatedData.labels = payload.labels?.slice(1, state.perPage+1);
+      state.paginatedData.confirmed = payload.confirmed?.slice(1, state.perPage+1);
+      state.paginatedData.deaths = payload.deaths?.slice(1, state.perPage+1);
     },
     setPaginatedData(state, payload) {
       state.paginatedData.labels = payload.labels;
       state.paginatedData.confirmed = payload.confirmed;
       state.paginatedData.deaths = payload.deaths;
+    },
+    setPerPageData(state, payload) {
+      state.perPage = payload;
     },
   },
   actions: {
@@ -38,6 +42,9 @@ const store = createStore({
     },
     setPaginatedDataAction(context, payload) {
       context.commit("setPaginatedData", payload);
+    },
+    setPerPageAction(context, payload) {
+      context.commit("setPerPageData", payload);
     },
   },
 });

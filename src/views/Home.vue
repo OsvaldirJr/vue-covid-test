@@ -1,38 +1,16 @@
 <template>
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div
-      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-    >
-      <h1 class="h2">Covid {{ place }}</h1>
-
-      <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-secondary"
-            :class="{active: typePlace==0}"
-            v-on:click="changeTypePlace(0)"
-          >
-            Dados mundias
-          </button>
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-secondary"
-            :class="{active: typePlace==1}"
-            v-on:click="changeTypePlace(1)"
-          >
-            Dados Nacionais
-          </button>
-        </div>
-      </div>
-    </div>
-    <div>
+  <main class="col-md-9 col-lg-12 px-md-4 mt-5">
+    <div class="mt-5">
       <div class="d-flex">
-        <select class="form-select m-2" v-on:change="chooseOption($event)">
+        <select class="form-select form-select-lg  m-2" v-on:change="chooseOption($event)">
           <option :value="-1">Todos</option>
           <option v-for="(item, index) in $store.state.data.labels" :value="index">
             {{ item }}
           </option>
+        </select>
+        <select class="form-select form-select-lg  m-2" v-on:change="changeTypePlace($event)" aria-label="Default select example">
+          <option :value="0">Mundo</option>
+          <option :value="1">Brasil</option>
         </select>
         <input
           v-if="typePlace == 1"
@@ -72,7 +50,13 @@
   </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@media (max-width: 768px) {
+    .chart {
+      // display: none !important;
+    }
+  }
+</style>
 
 <script lang="ts">
 import ChartComponent from "../components/Chart.vue";
@@ -96,7 +80,8 @@ export default {
     };
   },
   methods: {
-    changeTypePlace(type: number) {
+    changeTypePlace(event: any) {
+      let type= event.target.value;
       let route = type == 0 ? "/report/v1/countries" : "/report/v1";
       if (type != this.typePlace && type == 1) {
         api.get(route).then((response: any) => {

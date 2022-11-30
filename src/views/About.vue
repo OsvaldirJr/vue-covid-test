@@ -1,6 +1,7 @@
 <template>
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
-    <h1>Desafio técnico DBC</h1>
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-5 p-3">
+    <div class="mt-5">
+      <h1>Desafio técnico DBC</h1>
     <p>
       Deverá ser criado uma sistema para visualização dos dados da covid-19
       Fique a vontade para sugerir as telas e o formato de visualização dos
@@ -35,6 +36,8 @@
         >Api para consumo de dados.</a
       >
     </p>
+    </div>
+    
   </main>
 </template>
 <script>

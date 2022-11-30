@@ -1,16 +1,16 @@
 <template>
   <div class="d-flex">
-    <SideBar />
+    <NavBar/>
     <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
-import SideBar from "../src/components/SideBar.vue";
+import NavBar from "../src/components/NavBar.vue";
 export default {
   name: "app",
   components: {
-    SideBar,
+    NavBar
   },
 };
 </script>

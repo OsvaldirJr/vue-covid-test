@@ -1,6 +1,7 @@
 <template>
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3">
-    <h1>Osvaldir Dias da Silva Junior</h1>
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-5 p-3">
+    <div class="mt-5">
+      <h1>Osvaldir Dias da Silva Junior</h1>
     <hr/>
     <div class="d-flex mb-3 mt-3">
       <div class="left">Habilidades</div>
@@ -38,6 +39,8 @@
     </div>
     <hr/>
     <p ><a href="https://www.linkedin.com/in/osvaldirjunior/">LinkedIn.</a></p>
+    </div>
+    
   </main>
 </template>
 <script>

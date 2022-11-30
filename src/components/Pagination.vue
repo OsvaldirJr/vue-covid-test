@@ -3,7 +3,7 @@
     <pagination
       v-model="currentPage"
       :records="record"
-      :per-page="10"
+      :per-page="perPage"
       @paginate="paginate"
     />
   </div>
@@ -20,6 +20,7 @@ export default {
     return {
       perPage: 10,
       currentPage: 1,
+      windowHeight: window.innerHeight,
     };
   },
   computed: {
@@ -49,17 +50,40 @@ export default {
       });
     },
   },
+  mounted() {
+    this.perPage = 10;
+    if (this.windowHeight <= 900 && this.perPage == 10) {
+      this.perPage = 5;
+      this.$store.dispatch("setPerPageAction", 5);
+      this.paginate(1)
+    }
+
+    window.addEventListener("resize", (event: any) => {
+      this.perPage = 10;
+      if (event?.target?.innerWidth <= 900) {
+        this.perPage = 5;
+        this.$store.dispatch("setPerPageAction", 5);
+      }
+      this.paginate(1)
+    });
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
 .active > .page-link,
 .page-link.active {
   background-color: #6c757d !important;
   border-color: #6c757d !important;
   color: white !important;
 }
-.page-link{
-    color: #6c757d !important;
+.page-link {
+  color: #6c757d !important;
+}
+.pagination {
+  @media (max-width: 768px) {
+    --bs-pagination-padding-x: 0.35rem !important;
+    --bs-pagination-font-size: 0.7rem !important;
+  }
 }
 </style>
